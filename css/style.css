@@ -1,0 +1,265 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: white;
+  min-height: 100%;
+  font-family: "Arial", sans-serif;
+}
+
+.wrap {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  padding-bottom: 20px;
+}
+
+.game {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  min-height: 100%;
+  height: 100%;
+}
+
+@-webkit-keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+  }
+  100% {
+    background: white;
+  }
+}
+
+@keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+  }
+  100% {
+    background: white;
+  }
+}
+.card {
+  float: left;
+  width: 16.66666%;
+  height: 25%;
+  padding: 15px;
+  text-align: center;
+  display: block;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  position: relative;
+  cursor: pointer;
+  z-index: 50;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 800px) {
+  .card {
+    width: 25%;
+    height: 16.666%;
+  }
+}
+.card .inside {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+  background: white;
+}
+.card .inside.picked, .card .inside.matched {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.card .inside.matched {
+  border-radius: 50px 15px;
+  -webkit-animation: 1s matchAnim ease-in-out;
+          animation: 1s matchAnim ease-in-out;
+  -webkit-animation-delay: .4s;
+          animation-delay: .4s;
+}
+.card .front, .card .back {
+  border: 1px solid black;
+  border-radius: 15px 50px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+}
+.card .front img, .card .back img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+}
+.card .front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+@media (max-width: 800px) {
+  .card .front {
+    padding: 5px;
+  }
+}
+@media (max-width: 800px) {
+  .card .back {
+    padding: 10px;
+  }
+}
+
+.game-set {
+  display: none;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.game-set-modal {
+  display: none;
+  position: relative;
+  width: 500px;
+  height: 400px;
+  max-height: 90%;
+  max-width: 90%;
+  min-height: 380px;
+  margin: 0 auto;
+  background: white;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  padding: 30px 10px;
+}
+
+.game-set-modal .deck {
+  font-size: 80px;
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  color: #4d4d4d;
+  text-shadow: 0px 3px 0 black;
+}
+
+.game-set-modal .play {
+  font-family: "Anton", sans-serif;
+  margin: 30px auto;
+  padding: 20px 30px;
+  display: block;
+  font-size: 30px;
+  border: none;
+  background: #4d4d4d;
+  background: -webkit-linear-gradient(#4d4d4d, #222);
+  background: linear-gradient(#4d4d4d, #222);
+  border: 1px solid #222;
+  border-radius: 5px;
+  color: white;
+  text-shadow: 0px 1px 0 black;
+  cursor: pointer;
+}
+.game-set-modal .play:hover {
+  background: -webkit-linear-gradient(#222, black);
+  background: linear-gradient(#222, black);
+}
+
+.modal-overlay {
+  display: none;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  display: none;
+  position: relative;
+  width: 500px;
+  height: 400px;
+  max-height: 90%;
+  max-width: 90%;
+  min-height: 380px;
+  margin: 0 auto;
+  background: white;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  padding: 30px 10px;
+}
+.modal .winner {
+  font-size: 80px;
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  color: #4d4d4d;
+  text-shadow: 0px 3px 0 black;
+}
+@media (max-width: 480px) {
+  .modal .winner {
+    font-size: 60px;
+  }
+}
+.modal .restart {
+  font-family: "Anton", sans-serif;
+  margin: 30px auto;
+  padding: 20px 30px;
+  display: block;
+  font-size: 30px;
+  border: none;
+  background: #4d4d4d;
+  background: -webkit-linear-gradient(#4d4d4d, #222);
+  background: linear-gradient(#4d4d4d, #222);
+  border: 1px solid #222;
+  border-radius: 5px;
+  color: white;
+  text-shadow: 0px 1px 0 black;
+  cursor: pointer;
+}
+.modal .restart:hover {
+  background: -webkit-linear-gradient(#222, black);
+  background: linear-gradient(#222, black);
+}
+.modal .message {
+  text-align: center;
+}
+.modal .message a {
+  text-decoration: none;
+  color: #28afe6;
+  font-weight: bold;
+}
+.modal .message a:hover {
+  color: #56c0eb;
+  border-bottom: 1px dotted #56c0eb;
+}
+
+.footerAllTimeBest {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.footerGuesses {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
