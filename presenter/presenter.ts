@@ -19,7 +19,7 @@ export default class Game {
         
         view.$playButton.on("click", function() {
             allTimeBestScore = Number(window.localStorage.getItem(String(deckSize)));
-            $(".footerAllTimeBest").html("Best Score for this deck: " + allTimeBestScore);
+            $(".bestScore").html("Best Score for this deck: " + allTimeBestScore);
             Game.setCards();
 		    view.setup();
         });
@@ -31,8 +31,8 @@ export default class Game {
 
 		view.hideModal();
         gameState.guessCounter = 0;
-        $(".footerGuesses").html("");
-        $(".footerAllTimeBest").html("");
+        $(".guesses").html("");
+        $(".bestScore").html("");
 		let newGame = new Game().init();
 	};
     

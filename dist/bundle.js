@@ -101,12 +101,11 @@ var Game = (function () {
         view.start();
         deckSize = Number($("#decksize option:first").text());
         $(".size").change(function () {
-            console.log("hahah");
             deckSize = Number($("#decksize option:selected").text());
         });
         view.$playButton.on("click", function () {
             allTimeBestScore = Number(window.localStorage.getItem(String(deckSize)));
-            $(".footerAllTimeBest").html("Best Score for this deck: " + allTimeBestScore);
+            $(".bestScore").html("Best Score for this deck: " + allTimeBestScore);
             Game.setCards();
             view.setup();
         });
@@ -117,8 +116,8 @@ var Game = (function () {
         Game.setLocalStorage();
         view.hideModal();
         gameState_1.default.guessCounter = 0;
-        $(".footerGuesses").html("");
-        $(".footerAllTimeBest").html("");
+        $(".guesses").html("");
+        $(".bestScore").html("");
         var newGame = new Game().init();
     };
     ;
@@ -10561,12 +10560,12 @@ var View = (function () {
                 gameState_1.default.guess = $(this).attr("data-id");
             }
             else if (gameState_1.default.guess == $(this).attr("data-id") && !$(this).hasClass("picked")) {
-                $(".footerGuesses").html("Guesses: " + String(gameState_1.default.guessCounter++));
+                $(".guesses").html("Guesses: " + String(gameState_1.default.guessCounter++));
                 $(".picked").addClass("matched");
                 gameState_1.default.guess = null;
             }
             else {
-                $(".footerGuesses").html("Guesses: " + String(gameState_1.default.guessCounter++));
+                $(".guesses").html("Guesses: " + String(gameState_1.default.guessCounter++));
                 gameState_1.default.guess = null;
                 setTimeout(function () {
                     $(".picked").removeClass("picked");

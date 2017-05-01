@@ -14,8 +14,8 @@ export default class View {
 	public $cards: any;
 	private $memoryCards: any;
     private guess: any;
-    private $footerGuesses: any;
-    private $footerAllTimeBest: any;
+    private $guesses: any;
+    private $bestScore: any;
     
     constructor() {
         View.$game = $(".game");
@@ -72,11 +72,11 @@ export default class View {
 			if(!gameState.guess){
 				gameState.guess = $(this).attr("data-id");
 			} else if(gameState.guess == $(this).attr("data-id") && !$(this).hasClass("picked")){
-                $(".footerGuesses").html("Guesses: " + String(gameState.guessCounter++));
+                $(".guesses").html("Guesses: " + String(gameState.guessCounter++));
                 $(".picked").addClass("matched");
 				gameState.guess = null;
 			} else {
-                $(".footerGuesses").html("Guesses: " + String(gameState.guessCounter++));
+                $(".guesses").html("Guesses: " + String(gameState.guessCounter++));
 				gameState.guess = null;
 				setTimeout(function(){
 					$(".picked").removeClass("picked");
