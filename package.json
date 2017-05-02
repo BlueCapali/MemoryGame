@@ -12,9 +12,9 @@
   "devDependencies": {
     "jquery": "^3.2.1",
     "ts-loader": "^2.0.3",
-    "typescript": "^2.2.2"
+    "typescript": "^2.2.2",
+    "webpack": "^2.4.1"
   },
   "dependencies": {
-    "express": "^4.15.2"
   }
 }
