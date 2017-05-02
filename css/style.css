@@ -91,6 +91,7 @@ body {
   border-radius: 15px 50px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  transform: rotateX(0deg);
   position: absolute;
   top: 0;
   left: 0;
