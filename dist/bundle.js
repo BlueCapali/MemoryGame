@@ -10560,12 +10560,14 @@ var View = (function () {
                 gameState_1.default.guess = $(this).attr("data-id");
             }
             else if (gameState_1.default.guess == $(this).attr("data-id") && !$(this).hasClass("picked")) {
-                $(".guesses").html("Guesses: " + String(gameState_1.default.guessCounter++));
+                console.log("heee");
+                $(".guesses").html("Guesses: " + String(++gameState_1.default.guessCounter));
                 $(".picked").addClass("matched");
                 gameState_1.default.guess = null;
             }
             else {
-                $(".guesses").html("Guesses: " + String(gameState_1.default.guessCounter++));
+                console.log("haaa");
+                $(".guesses").html("Guesses: " + String(++gameState_1.default.guessCounter));
                 gameState_1.default.guess = null;
                 setTimeout(function () {
                     $(".picked").removeClass("picked");

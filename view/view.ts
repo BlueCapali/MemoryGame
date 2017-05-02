@@ -72,11 +72,13 @@ export default class View {
 			if(!gameState.guess){
 				gameState.guess = $(this).attr("data-id");
 			} else if(gameState.guess == $(this).attr("data-id") && !$(this).hasClass("picked")){
-                $(".guesses").html("Guesses: " + String(gameState.guessCounter++));
+				console.log("heee");
+                $(".guesses").html("Guesses: " + String(++gameState.guessCounter));
                 $(".picked").addClass("matched");
 				gameState.guess = null;
 			} else {
-                $(".guesses").html("Guesses: " + String(gameState.guessCounter++));
+				console.log("haaa");
+                $(".guesses").html("Guesses: " + String(++gameState.guessCounter));
 				gameState.guess = null;
 				setTimeout(function(){
 					$(".picked").removeClass("picked");
