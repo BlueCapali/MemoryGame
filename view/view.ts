@@ -72,12 +72,10 @@ export default class View {
 			if(!gameState.guess){
 				gameState.guess = $(this).attr("data-id");
 			} else if(gameState.guess == $(this).attr("data-id") && !$(this).hasClass("picked")){
-				console.log("heee");
                 $(".guesses").html("Guesses: " + String(++gameState.guessCounter));
                 $(".picked").addClass("matched");
 				gameState.guess = null;
 			} else {
-				console.log("haaa");
                 $(".guesses").html("Guesses: " + String(++gameState.guessCounter));
 				gameState.guess = null;
 				setTimeout(function(){
